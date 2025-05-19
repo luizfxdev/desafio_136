@@ -1,0 +1,279 @@
+/* Reset e estilos globais */
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: #0a0a1a url('./images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10%;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Container principal */
+.container {
+    background: #191919;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 0 30px rgba(100, 100, 255, 0.2);
+    border: 1px solid rgba(100, 100, 255, 0.1);
+}
+
+h1 {
+    color: #4fc3f7;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 2.2rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: #b3e5fc;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+/* Tabela de inputs */
+.input-container {
+    margin-bottom: 25px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th {
+    background-color: rgba(79, 195, 247, 0.2);
+    color: #4fc3f7;
+    padding: 12px;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(79, 195, 247, 0.3);
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4fc3f7;
+    box-shadow: 0 0 5px rgba(79, 195, 247, 0.5);
+}
+
+/* Container dos botões */
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+/* Estilos do botão animado */
+.glow-on-hover {
+    width: 200px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000;
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* Área de resultados melhorada */
+.result-container {
+    margin-top: 20px;
+}
+
+.result-container h2 {
+    color: #4fc3f7;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.result-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(79, 195, 247, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 100px;
+    color: #b3e5fc;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+    max-height: 300px;
+    white-space: pre;
+    line-height: 1.5;
+}
+
+/* Estilo para o container do JSON */
+.json-container {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para cada linha do JSON */
+.json-line {
+    display: block;
+    margin: 0;
+    padding-left: 20px;
+    text-indent: -10px;
+}
+
+/* Estilo para colchetes e vírgulas */
+.json-bracket {
+    color: #f48fb1;
+}
+
+.json-comma {
+    color: #f48fb1;
+}
+
+/* Estilo para os números */
+.json-number {
+    color: #4fc3f7;
+    font-weight: bold;
+}
+
+/* Estilo para quando não há resultados */
+.no-results {
+    color: #f48fb1;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+        justify-content: center;
+    }
+    
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .glow-on-hover {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    table {
+        font-size: 0.9rem;
+    }
+    
+    input {
+        padding: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 8px 5px;
+    }
+}

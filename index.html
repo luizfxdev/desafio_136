@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constelações Perdidas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Constelações Perdidas</h1>
+        <p class="subtitle">Reconstrua o mapa estelar conectando as estrelas mais próximas</p>
+
+        <div class="input-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Posição X</th>
+                        <th>Posição Y</th>
+                    </tr>
+                </thead>
+                <tbody id="stars-table">
+                    <tr>
+                        <td><input type="number" class="id-input" value="1" min="1"></td>
+                        <td><input type="number" class="x-input" value="1"></td>
+                        <td><input type="number" class="y-input" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" class="id-input" value="2" min="1"></td>
+                        <td><input type="number" class="x-input" value="2"></td>
+                        <td><input type="number" class="y-input" value="2"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" class="id-input" value="3" min="1"></td>
+                        <td><input type="number" class="x-input" value="5"></td>
+                        <td><input type="number" class="y-input" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" class="id-input" value="4" min="1"></td>
+                        <td><input type="number" class="x-input" value="3"></td>
+                        <td><input type="number" class="y-input" value="3"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="button-container">
+            <button class="glow-on-hover" id="decipher-btn" type="button">DECIFRAR</button>
+            <button class="glow-on-hover" id="return-btn" type="button">RETORNAR</button>
+        </div>
+
+        <div class="result-container">
+            <h2>Conexões das Constelações</h2>
+            <div id="result" class="result-box"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
